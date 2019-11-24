@@ -240,3 +240,11 @@ TEST(TestStdVector, Data) {
   // Tests
   ASSERT_THAT(vector, ElementsAre(10, 20, 0, 100, 0));
 }
+
+TEST(TestStdVector, Empty) {
+  std::vector<int> vector;  // allocate vector with 5 elements.
+
+  EXPECT_TRUE(vector.empty());
+  vector.push_back(1);  // allocate vector with 5 elements.
+  EXPECT_FALSE(vector.empty());
+}
