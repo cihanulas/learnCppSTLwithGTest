@@ -325,3 +325,20 @@ TEST(TestStdVector, MaxSize) {
   auto max_size = vector.max_size();
   EXPECT_GT(max_size, 1e9);  // 1e9 integer
 }
+
+TEST(TestStdVector, AssignmentOperator) {
+  /*
+  Assigns new contents to the container,
+  replacing its current contents, and modifying its size accordingly.
+  */
+  std::vector<int> foo{1, 2, 3};
+  ASSERT_THAT(foo, ElementsAre(1, 2, 3));
+
+  std::vector<int> bar{4, 5, 6};
+  ASSERT_THAT(bar, ElementsAre(4, 5, 6));
+
+  foo = bar;
+  ASSERT_THAT(foo, ElementsAre(4, 5, 6));
+  ASSERT_THAT(foo, bar);
+  // Preparations
+}
