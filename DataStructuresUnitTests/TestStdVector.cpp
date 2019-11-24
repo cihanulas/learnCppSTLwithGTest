@@ -175,7 +175,33 @@ TEST(TestStdVector, Clear) {
   // Tests
   ASSERT_THAT(vector, ElementsAre());
 
+  // Operations
   vector.push_back(100);
   // Tests
   ASSERT_THAT(vector, ElementsAre(100));
+}
+
+TEST(TestStdVector, Data) {
+  /*
+    Returns a direct pointer to the memory
+    array used internally by the vector to store its owned elements.
+  */
+
+  std::vector<int> vector(5);  // allocate vector with 5 elements.
+  ASSERT_THAT(vector, ElementsAre(0, 0, 0, 0, 0));
+  int* p = vector.data();
+
+  // Operations: update element, then increase pointer and update values.
+
+  *p = 10;  // vector[0] = 10
+  EXPECT_EQ(vector[0], 10);
+
+  ++p;
+  *p = 20;
+  EXPECT_EQ(vector[1], 20);
+  p[2] = 100;
+  EXPECT_EQ(vector[3], 100);
+
+  // Tests
+  ASSERT_THAT(vector, ElementsAre(10, 20, 0, 100, 0));
 }
