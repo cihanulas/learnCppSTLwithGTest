@@ -312,3 +312,16 @@ TEST(TestStdVector, GetAllocator) {
   vector.get_allocator().deallocate(p, N);
   for (auto i = 0; i < N; i++) EXPECT_NE(p[i], i);
 }
+
+TEST(TestStdVector, MaxSize) {
+  /*
+  Returns the maximum number of elements that the vector can hold.
+  It is not guaranteed.
+  */
+
+  // Preparations
+  std::vector<int> vector;
+  for (int i = 0; i < 10; i++) vector.push_back(i);
+  auto max_size = vector.max_size();
+  EXPECT_GT(max_size, 1e9);  // 1e9 integer
+}
