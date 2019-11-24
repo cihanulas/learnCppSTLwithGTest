@@ -163,3 +163,19 @@ expressed in terms of elements.
   // Operations&& Tests
   EXPECT_GE(vector.capacity(), vector.size());
 }
+
+TEST(TestStdVector, Clear) {
+  // Preparations
+  std::vector<int> vector{1, 2, 3};  // vector size 100, is filled with 3.
+  ASSERT_THAT(vector, ElementsAre(1, 2, 3));
+
+  // Operations
+  vector.clear();
+
+  // Tests
+  ASSERT_THAT(vector, ElementsAre());
+
+  vector.push_back(100);
+  // Tests
+  ASSERT_THAT(vector, ElementsAre(100));
+}
