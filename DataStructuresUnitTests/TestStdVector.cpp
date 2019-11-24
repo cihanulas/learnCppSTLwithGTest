@@ -278,3 +278,10 @@ TEST(TestStdVector, Erase) {
   vector.erase(vector.end() - 2, vector.end());
   ASSERT_THAT(vector, ElementsAre(1, 3));
 }
+
+TEST(TestStdVector, Front) {
+  std::vector<int> vector{1, 2, 3};  // allocate vector with 5 elements.
+
+  EXPECT_EQ(vector.front(), 1);
+  EXPECT_EQ(vector.front(), *vector.begin());
+}
