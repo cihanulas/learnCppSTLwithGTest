@@ -17,9 +17,10 @@ The learning and testing curve will be as in the steps below.
    * Operation
    * Tests
 
-/*
+
+
 Test: Add 3 elements to vector with push_back, then verify.
-*/
+```
 TEST(TestStdVector, PushBack) {
   // Preparations
   std::vector<int> vector;
@@ -38,3 +39,4 @@ TEST(TestStdVector, PushBack) {
   ASSERT_THAT(vector, ElementsAreArray(std::vector<int>{1, 2, 3}));
   ASSERT_THAT(vector, ElementsAre(1, 2, 3));
 }
+```
