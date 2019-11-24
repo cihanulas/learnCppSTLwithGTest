@@ -285,3 +285,30 @@ TEST(TestStdVector, Front) {
   EXPECT_EQ(vector.front(), 1);
   EXPECT_EQ(vector.front(), *vector.begin());
 }
+
+TEST(TestStdVector, GetAllocator) {
+  // Preparations
+  std::vector<int> vector;
+
+  size_t N = 5;
+  // Operations
+  // allocate an array with space for 5 elements using vector's allocator:
+  int* p = vector.get_allocator().allocate(N);
+
+  // construct values in-place on the array:
+  for (auto i = 0; i < N; i++) vector.get_allocator().construct(&p[i], i);
+
+  // We do not make any change on the vector, just use it is allocator.
+  // So Not-> ASSERT_THAT(vector, ElementsAre(1, 2, 3, 4, 5));
+  // But
+  for (auto i = 0; i < N; i++) EXPECT_EQ(p[i], i);
+
+  // destroy and deallocate:
+  for (auto i = 0; i < N; i++) vector.get_allocator().destroy(&p[i]);
+  // After destroy, the values are still in memory
+  for (auto i = 0; i < N; i++) EXPECT_EQ(p[i], i);
+
+  // After deallocate, the values are not in memory
+  vector.get_allocator().deallocate(p, N);
+  for (auto i = 0; i < N; i++) EXPECT_NE(p[i], i);
+}
