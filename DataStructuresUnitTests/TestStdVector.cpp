@@ -28,6 +28,23 @@ TEST(TestStdVector, PushBack) {
 }
 
 /*
+Inserts a new element at the end of the vector, right after its current last
+element. This new element is constructed in place using args as the arguments
+for its constructor.
+*/
+TEST(TestStdVector, EmplaceBack) {
+  // Preparations
+  std::vector<int> vector{1, 2, 3};
+
+  // Operation
+  vector.emplace_back(4);
+  vector.emplace_back(5);
+
+  // Tests
+  ASSERT_THAT(vector, ElementsAre(1, 2, 3, 4, 5));
+}
+
+/*
 Test: Popback 3 elements to vector with push_back, then verify.
 */
 TEST(TestStdVector, PopBack) {
