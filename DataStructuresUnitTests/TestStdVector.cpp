@@ -340,7 +340,6 @@ TEST(TestStdVector, AssignmentOperator) {
   foo = bar;
   ASSERT_THAT(foo, ElementsAre(4, 5, 6));
   ASSERT_THAT(foo, bar);
-  // Preparations
 }
 
 TEST(TestStdVector, Reserve) {
@@ -375,4 +374,27 @@ TEST(TestStdVector, Reserve) {
 
   EXPECT_FALSE(is_capacity_changed);
   // Preparations
+}
+
+TEST(TestStdVector, Resize) {
+  /*
+  Resizes the container so that it contains n elements.
+  If n is smaller than the current container size, the content is reduced to its
+  first n elements, removing those beyond (and destroying them).
+
+  If n is greater than the current container size, the content is expanded by
+  inserting at the end as many elements as needed to reach a size of n. If val
+  is specified, the new elements are initialized as copies of val, otherwise,
+  they are value-initialized.
+  */
+
+  std::vector<int> vector{1, 2, 3, 4, 5, 6};
+  vector.resize(3);
+  ASSERT_THAT(vector, ElementsAre(1, 2, 3));
+
+  vector.resize(6, 100);  // value specifed, 100s will be inserted
+  ASSERT_THAT(vector, ElementsAre(1, 2, 3, 100, 100, 100));
+
+  vector.resize(7);  // value not specified, so 0 will be inserted
+  ASSERT_THAT(vector, ElementsAre(1, 2, 3, 100, 100, 100, 0));
 }
