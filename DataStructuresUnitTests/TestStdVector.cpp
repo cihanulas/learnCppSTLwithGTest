@@ -423,3 +423,20 @@ TEST(TestStdVector, Size) {
   vector.resize(3);
   EXPECT_EQ(vector.size(), 3);
 }
+
+TEST(TestStdVector, Swap) {
+  /*
+  Returns the number of elements in the vector.
+  */
+  std::vector<int> foo{1, 2, 3};
+  std::vector<int> bar{4, 5, 6};
+  ASSERT_THAT(foo, ElementsAre(1, 2, 3));
+  ASSERT_THAT(bar, ElementsAre(4, 5, 6));
+
+  // Operation
+  foo.swap(bar);
+
+  // Test
+  ASSERT_THAT(foo, ElementsAre(4, 5, 6));
+  ASSERT_THAT(bar, ElementsAre(1, 2, 3));
+}
