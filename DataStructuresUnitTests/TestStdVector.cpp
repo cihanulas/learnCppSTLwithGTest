@@ -413,3 +413,13 @@ TEST(TestStdVector, ShrinkToFit) {
   vector.shrink_to_fit();
   EXPECT_EQ(vector.capacity(), 3);
 }
+
+TEST(TestStdVector, Size) {
+  /*
+  Returns the number of elements in the vector.
+  */
+  std::vector<int> vector{1, 2, 3, 4, 5, 6};
+  EXPECT_EQ(vector.size(), 6);
+  vector.resize(3);
+  EXPECT_EQ(vector.size(), 3);
+}
