@@ -261,3 +261,20 @@ TEST(TestStdVector, End) {
   // NO !!!
   // EXPECT_EQ(*vector.end(), 3);
 }
+
+TEST(TestStdVector, Erase) {
+  /*
+ Removes from the vector either a single element (position) or a range of
+ elements ([first,last)).
+ Causes the container to relocate all the elements, so not effiecient
+ */
+  std::vector<int> vector{1, 2, 3, 4, 5};  // allocate vector with 5 elements.
+
+  // Operation => O(n)
+  auto it = vector.erase(vector.begin() + 1);  // remove element at index 1;
+  ASSERT_THAT(vector, ElementsAre(1, 3, 4, 5));
+  EXPECT_EQ(*it, 3);
+  // Remove last two elements
+  vector.erase(vector.end() - 2, vector.end());
+  ASSERT_THAT(vector, ElementsAre(1, 3));
+}
