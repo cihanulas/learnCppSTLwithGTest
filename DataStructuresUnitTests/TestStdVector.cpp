@@ -150,3 +150,16 @@ TEST(TestStdVector, Begin) {
   // it provides the iterator, so it needs to be dereferenced via *
   EXPECT_EQ(*vector.begin(), 1);
 }
+
+TEST(TestStdVector, Capacity) {
+  /*
+Returns the size of the storage space currently allocated for the vector,
+expressed in terms of elements.
+*/
+
+  // Preparations
+  std::vector<int> vector(100, 3);  // vector size 100, is filled with 3.
+
+  // Operations&& Tests
+  EXPECT_GE(vector.capacity(), vector.size());
+}
