@@ -40,3 +40,17 @@ TEST(TestStdVector, PushBack) {
   ASSERT_THAT(vector, ElementsAre(1, 2, 3));
 }
 ```
+
+```
+TEST(TestStdVector, Compare) {
+  /*
+  Returns the number of elements in the vector.
+  */
+  std::vector<int> foo{1, 2, 3};
+  std::vector<int> bar{4, 5, 6};
+
+  EXPECT_TRUE(foo != bar);
+  foo = bar;
+  EXPECT_TRUE(foo == bar);
+}
+```
