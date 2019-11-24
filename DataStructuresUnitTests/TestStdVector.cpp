@@ -88,6 +88,24 @@ TEST(TestStdVector, Insert) {
               ElementsAre(501, 502, 503, 5, 1, 6, 2, 3, 4, 7, 100, 200, 300));
 }
 
+TEST(TestStdVector, Emplace) {
+  /*
+   The container is extended by inserting a new element at position.
+   This new element is constructed in place using args as the arguments for its
+   construction.
+  */
+
+  std::vector<int> vector = {1, 2, 3};
+
+  // Operations && Tests
+  auto it = vector.emplace(vector.begin(), 4);
+  ASSERT_THAT(vector, ElementsAre(4, 1, 2, 3));
+  EXPECT_EQ(*it, 4);
+
+  vector.emplace(vector.end(), 5);
+  ASSERT_THAT(vector, ElementsAre(4, 1, 2, 3, 5));
+}
+
 /*
 Assigns new contents to the vector, replacing its current contents, and
 modifying its size accordingly.
