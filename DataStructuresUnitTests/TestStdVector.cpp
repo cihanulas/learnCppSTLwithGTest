@@ -113,3 +113,19 @@ TEST(TestStdVector, Assign) {
     ASSERT_THAT(vector, ElementsAre(1, 3, 5));
   }
 }
+
+TEST(TestStdVector, At) {
+  std::vector<int> vector{1, 2};
+  ASSERT_THAT(vector, ElementsAre(1, 2));
+
+  EXPECT_EQ(vector[0], 1);
+  EXPECT_EQ(vector[1], 2);
+
+  EXPECT_EQ(vector.at(0), 1);
+  EXPECT_EQ(vector.at(1), 2);
+
+  // Reaching to field does not exist, vector[2] does not throw, use at()
+  // instead.
+  EXPECT_THROW(vector.at(2), std::out_of_range);
+  // EXPECT_THROW(vector[2], std::out_of_range);
+}
