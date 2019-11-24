@@ -129,3 +129,14 @@ TEST(TestStdVector, At) {
   EXPECT_THROW(vector.at(2), std::out_of_range);
   // EXPECT_THROW(vector[2], std::out_of_range);
 }
+
+TEST(TestStdVector, Back) {
+  // Preparations
+  std::vector<int> vector{1, 2};
+  ASSERT_THAT(vector, ElementsAre(1, 2));
+
+  // Operations && Tests
+  EXPECT_EQ(vector.back(), 2);
+  vector.pop_back();
+  EXPECT_EQ(vector.back(), 1);
+}
