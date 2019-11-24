@@ -342,3 +342,37 @@ TEST(TestStdVector, AssignmentOperator) {
   ASSERT_THAT(foo, bar);
   // Preparations
 }
+
+TEST(TestStdVector, Reserve) {
+  /*
+  Requests that the vector capacity be at least enough to contain n elements.
+  */
+
+  std::vector<int> foo;
+  auto sz = foo.capacity();
+
+  bool is_capacity_changed = false;
+  for (int i = 0; i < 100; ++i) {
+    foo.push_back(i);
+    if (sz != foo.capacity()) {
+      is_capacity_changed = true;
+      break;
+    }
+  }
+
+  EXPECT_TRUE(is_capacity_changed);
+  is_capacity_changed = false;
+  std::vector<int> bar;
+  bar.reserve(100);
+  sz = bar.capacity();
+  for (int i = 0; i < 100; ++i) {
+    bar.push_back(i);
+    if (sz != bar.capacity()) {
+      is_capacity_changed = true;
+      break;
+    }
+  }
+
+  EXPECT_FALSE(is_capacity_changed);
+  // Preparations
+}
