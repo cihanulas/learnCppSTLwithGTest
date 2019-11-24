@@ -248,3 +248,16 @@ TEST(TestStdVector, Empty) {
   vector.push_back(1);  // allocate vector with 5 elements.
   EXPECT_FALSE(vector.empty());
 }
+
+TEST(TestStdVector, End) {
+  /*
+ The past-the-end element is the theoretical element that would follow the last
+ element in the vector.
+ It does not point to any element, and thus shall not be dereferenced.
+ */
+  std::vector<int> vector{1, 2, 3};  // allocate vector with 5 elements.
+
+  EXPECT_EQ(*(vector.end() - 1), 3);
+  // NO !!!
+  // EXPECT_EQ(*vector.end(), 3);
+}
