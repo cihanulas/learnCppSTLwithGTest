@@ -439,4 +439,8 @@ TEST(TestStdVector, Swap) {
   // Test
   ASSERT_THAT(foo, ElementsAre(4, 5, 6));
   ASSERT_THAT(bar, ElementsAre(1, 2, 3));
+
+  std::swap(foo, bar);
+  ASSERT_THAT(foo, ElementsAre(1, 2, 3));
+  ASSERT_THAT(bar, ElementsAre(4, 5, 6));
 }
