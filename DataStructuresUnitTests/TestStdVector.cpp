@@ -9,8 +9,10 @@ using namespace testing;
 Test: Add 3 elements to vector with push_back, then verify.
 */
 TEST(TestStdVector, PushBack) {
-  // Prepare input
+  // Preparations
   std::vector<int> vector;
+
+  // Operation
   vector.push_back(1);
   vector.push_back(2);
   vector.push_back(3);
