@@ -398,3 +398,18 @@ TEST(TestStdVector, Resize) {
   vector.resize(7);  // value not specified, so 0 will be inserted
   ASSERT_THAT(vector, ElementsAre(1, 2, 3, 100, 100, 100, 0));
 }
+
+TEST(TestStdVector, ShrinkToFit) {
+  /*
+  Requests the container to reduce its capacity to fit its size.
+  */
+
+  std::vector<int> vector{1, 2, 3, 4, 5, 6};
+  EXPECT_EQ(vector.capacity(), 6);
+
+  vector.resize(3);  // resize does not affect the capacity.
+  EXPECT_EQ(vector.capacity(), 6);
+
+  vector.shrink_to_fit();
+  EXPECT_EQ(vector.capacity(), 3);
+}
