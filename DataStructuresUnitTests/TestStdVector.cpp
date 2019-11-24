@@ -140,3 +140,13 @@ TEST(TestStdVector, Back) {
   vector.pop_back();
   EXPECT_EQ(vector.back(), 1);
 }
+
+TEST(TestStdVector, Begin) {
+  // Preparations
+  std::vector<int> vector{1, 2};
+  ASSERT_THAT(vector, ElementsAre(1, 2));
+
+  // Operations&& Tests
+  // it provides the iterator, so it needs to be dereferenced via *
+  EXPECT_EQ(*vector.begin(), 1);
+}
