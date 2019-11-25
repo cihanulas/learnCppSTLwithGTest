@@ -50,6 +50,7 @@
     <ClInclude Include="pch.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="TestStdSet.cpp" />
     <ClCompile Include="TestStdList.cpp" />
     <ClCompile Include="TestStdVector.cpp" />
     <ClCompile Include="pch.cpp">
