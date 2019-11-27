@@ -1,5 +1,6 @@
 ﻿#pragma once
 #include <functional>
+// #include <utility>
 #include "Node.h"
 
 class LinkedList {
@@ -136,6 +137,10 @@ class LinkedList {
     }
   };
 
+  void remove(int val) {
+    remove_if([val](int value) { return value == val; });
+  }
+
   void reverse() {
     // [10, 12, 0, 4] => [4, 0, 12, 10] watch the video. It is quite
     // complicated.s https:// www.geeksforgeeks.org/reverse-a-linked-list/
@@ -156,6 +161,8 @@ class LinkedList {
     m_head = first;
   }
 
+  NodeSharedPtr begin() { return m_head; }
+  NodeSharedPtr end() { return m_tail; }
   NodeSharedPtr node_at(size_t index) {
     auto ptr = head();
     int i = 0;
@@ -165,14 +172,18 @@ class LinkedList {
     }
     return ptr;
   }
+  int at(size_t index) { return node_at(index)->value; }
   bool empty() { return m_length == 0; }
+  friend void print(LinkedList list);
+  friend NodeSharedPtr next(LinkedList& list, size_t index = 0);
+
+ private:
   NodeSharedPtr head() { return m_head; }
   NodeSharedPtr head() const {
     return m_head;
   }  // for const object, which can not modify the head
   size_t size() const { return m_length; }
   // bool operator==(const LinkedList& rhs) const { return true; }
-  int at(size_t index) { return node_at(index)->value; }
 
  private:
   void add_first_item(int value) {
@@ -198,6 +209,20 @@ class LinkedList {
   size_t m_length{0};
 };
 
+namespace std {
+NodeSharedPtr next(NodeSharedPtr ptr, size_t index = 1) {
+  NodeSharedPtr temp = ptr;
+  size_t i = 0;
+  while (i < index) {
+    temp = temp->next;
+    i++;
+  }
+  return temp;
+};
+
+void print(const LinkedList& list) { return; };
+
+}  // namespace std
 // void static printList(const LinkedList& list, const std::string& title = "")
 // {
 //  NodeSharedPtr ptr = list.head();

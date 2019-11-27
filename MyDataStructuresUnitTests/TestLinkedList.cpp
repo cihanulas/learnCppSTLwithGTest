@@ -56,7 +56,7 @@ MATCHER_P5(ElementsAre, p0, p1, p2, p3, p4, "") {
   return res;
 }
 
-TEST(LinkedList, PushBack) {
+TEST(TestLinkedList, PushBack) {
   /*
   O(1):
   */
@@ -74,7 +74,7 @@ TEST(LinkedList, PushBack) {
   ASSERT_THAT(list, ElementsAre(1, 2, 3, 4, 5));
 }
 
-TEST(TestStdlist, PushFront) {
+TEST(TestLinkedList, PushFront) {
   /*
   O(1)
   */
@@ -90,7 +90,7 @@ TEST(TestStdlist, PushFront) {
   ASSERT_THAT(list, ElementsAre(2, 1));
 }
 
-TEST(TestStdlist, PopBack) {
+TEST(TestLinkedList, PopBack) {
   // Prepare input
   LinkedList list{1, 2, 3, 4};
 
@@ -110,4 +110,53 @@ TEST(TestStdlist, PopBack) {
 
   // Check with empty array
   ASSERT_THAT(list, ElementsAre());
+}
+
+TEST(TestLinkedList, PopFront) {
+  // Prepare input
+  LinkedList list{1, 2, 3, 4};
+
+  // Operation
+  list.pop_front();
+
+  // Check after the operation
+  ASSERT_THAT(list, ElementsAre(2, 3, 4));
+}
+TEST(TestLinkedList, Next) {
+  LinkedList list{1, 2};
+  auto begin = list.begin();
+  auto next = std::next(begin);
+  auto val = *next;
+  EXPECT_TRUE(next->value, 2);
+}
+
+TEST(TestLinkedList, Insert) {
+  /*
+  Linear in the number of elements inserted.
+  O(m)
+  */
+  // Prepare input
+  LinkedList list{1, 2};
+
+  // Check before the operation
+  ASSERT_THAT(list, ElementsAre(1, 2));
+
+  // insert element into index 1
+  list.insert(1, 5);
+  // Check after the operation
+  ASSERT_THAT(list, ElementsAre(1, 5, 2));
+}
+
+TEST(TestLinkedList, Erase) {
+  LinkedList list{10, 20, 30};
+
+  list.erase(1);  // by index
+  ASSERT_THAT(list, ElementsAre(10, 30));
+}
+
+TEST(TestLinkedList, Remove) {
+  LinkedList list{10, 20, 30};
+
+  list.remove(20);  // by index
+  ASSERT_THAT(list, ElementsAre(10, 30));
 }
