@@ -28,6 +28,7 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Include\BinarySearcTree.h" />
     <ClInclude Include="Include\LinkedList.h" />
     <ClInclude Include="Include\Node.h" />
   </ItemGroup>

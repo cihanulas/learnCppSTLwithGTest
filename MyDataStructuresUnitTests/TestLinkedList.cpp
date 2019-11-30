@@ -127,7 +127,7 @@ TEST(TestLinkedList, Next) {
   auto begin = list.begin();
   auto next = std::next(begin);
   auto val = *next;
-  EXPECT_TRUE(next->value, 2);
+  EXPECT_EQ(next->value, 2);
 }
 
 TEST(TestLinkedList, Insert) {
