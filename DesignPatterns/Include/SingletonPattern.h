@@ -1,7 +1,5 @@
 ﻿#pragma once
 
-#include <memory>
-
 class Singleton {
   Singleton(){};
   static Singleton* instance;
