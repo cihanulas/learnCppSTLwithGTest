@@ -1,0 +1,21 @@
+﻿
+Renamed 'Single' to 'Singleton':
+--------------------------------
+C:\GDrive\C++Development\DesignPatterns\Include\SingletonPattern.h(4, 7)
+C:\GDrive\C++Development\DesignPatterns\Include\SingletonPattern.h(5, 3)
+C:\GDrive\C++Development\DesignPatterns\Include\SingletonPattern.h(8, 10)
+C:\GDrive\C++Development\DesignPatterns\Include\SingletonPattern.h(9, 26)
+C:\GDrive\C++Development\DesignPatterns\Include\SingletonPattern.h(14, 17)
+C:\GDrive\C++Development\DesignPatterns\Include\SingletonPattern.h(14, 25)
+C:\GDrive\C++Development\DesignPatterns\Include\SingletonPattern.h(14, 61)
+C:\GDrive\C++Development\DesignPatterns\Include\SingletonPattern.h(16, 1)
+C:\GDrive\C++Development\DesignPatterns\Include\SingletonPattern.h(16, 9)
+
+Renamed 'IProduct' to 'Product':
+--------------------------------
+C:\GDrive\C++Development\DesignPatternsTests\TestFactoryPattern.cpp(7, 3)
+C:\GDrive\C++Development\DesignPatternsTests\TestFactoryPattern.cpp(8, 3)
+C:\GDrive\C++Development\DesignPatterns\Include\FactoryPattern.h(8, 8)
+C:\GDrive\C++Development\DesignPatterns\Include\FactoryPattern.h(14, 25)
+C:\GDrive\C++Development\DesignPatterns\Include\FactoryPattern.h(20, 25)
+C:\GDrive\C++Development\DesignPatterns\Include\FactoryPattern.h(31, 3)
