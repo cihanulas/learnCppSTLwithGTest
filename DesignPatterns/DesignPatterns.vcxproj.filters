@@ -27,6 +27,9 @@
     <ClInclude Include="Include\AbstractFactory.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Include\BuilderPattern.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Source\DesignPatterns.cpp">

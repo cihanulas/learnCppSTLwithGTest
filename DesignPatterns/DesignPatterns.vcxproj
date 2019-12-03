@@ -20,6 +20,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Include\AbstractFactory.h" />
+    <ClInclude Include="Include\BuilderPattern.h" />
     <ClInclude Include="Include\FactoryPattern.h" />
     <ClInclude Include="Include\pch.h" />
     <ClInclude Include="Include\SingletonPattern.h" />
